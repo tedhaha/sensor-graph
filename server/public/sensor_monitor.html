@@ -1,0 +1,227 @@
+<html><head>
+    <meta charset="utf-8">
+    <title>Sensor Monitor</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/jquery-ui.min.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/sensor_monitor.css">
+    <script type="text/javascript" src="/javascripts/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="/javascripts/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/javascripts/shield-chart.all.min.js">//</script>
+    
+</head>
+<body>
+	<br>
+	<h1 align="center">Sensor Monitor</h1><br><br>
+	
+	
+<div id="div_time_change" name="div_time_change" style="
+    position: absolute;
+    margin-left: 58%;
+    margin-top: 61px;
+       border: 2px solid rgb(128, 31, 127);
+"><a href="#" style="
+    text-decoration: none;
+"><img width="30px" height="31px" border="0" alt="left" id="left" name="left" src="data:image/jpeg;base64,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" style="
+    
+    -webkit-transform: rotate(0deg);
+    margin-top: 5px;
+" padding-top="2px">
+<!--
+  <i1mg margin-top="2px" width="33px" height="33px" border="0" alt="now" id="now" name="now" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRvvQB2QKPF6e198KbrwUf7JXAHWkU9EMHW0Hx3kpt1iFzmHZ4l" style="margin-top: 0px;">
+-->
+<img margin-top="2px" width="30px" height="31px" border="0" alt="right" id="right" name="right" src="data:image/jpeg;base64,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" style="margin-top: 0px;-webkit-transform: rotate(180deg);">
+</a>
+</div>	
+
+	
+  <div style="
+    position: absolute;
+    margin-left: 65%;
+    margin-top: -50px;
+    border: 2px solid rgb(128, 31, 127);
+"><select name="chart_type" style="
+    width: 350px;
+    margin: 3px 8px 3px 10px;
+    margin-right: 8px;
+    font-size: 20px;
+">
+    <option value="1" selected="selected">CAN - Temperature (TEMP2CAN)</option>
+    <option value="2">CAN - Distance (PSD2CAN)</option>
+    <option value="3">CAN - Sound Wave (SONIC2CAN)</option>
+    <option value="4">RS485 - Tempreature Sensor Module</option>
+    <option value="5">RS485 - Humidity Sensor Module</option>
+    <option value="6">RS485 - Dust Sensor Module</option>
+
+  <!--
+    <option value="realtime_temp_chart.html">RealTime Chart</option>
+  -->
+</select></div>
+	<table class="frame" align="center" style="">
+		<tbody><tr>
+			<th>Temperature Chart</th>
+			<th>Real Time Log </th>			
+		</tr>
+		<tr>
+			<td valign="top" style="width:70%
+">
+							
+               <iframe id="iframe_chart" name="iframe_chart" src="http://sensor-monitor.herokuapp.com/daily_temp_chart.html" style="
+    border: none;
+    width: 100%;
+    height: 100%;
+"></iframe>
+			</td><td id="log" align="center" style="
+">
+  <div id="status_temperature" name="status_temperature" class="sensor_on" style="
+">Sensor On</div><p></p>
+				** Connection Log **<br><textarea id="log_console" rows="12" cols="120" style="
+    width: 88%;
+    height: 390px;
+"></textarea>
+			</td>	
+		</tr>
+		          
+	</tbody></table>
+
+	
+<script>
+
+var display_date_ori = '2013-10-3';
+var display_date = '2013-10-3';
+var sensor_id = 1;
+
+$(document).ready(function() {
+    
+    redraw_chart();
+    
+    setInterval(function () {
+        var now = new Date();
+        now = now.getHours()+':'+now.getMinutes()+':'+now.getSeconds();
+        
+        var ran = Math.random();
+                    if(ran < 0.5 ){
+                        ran += 0.5
+                    }
+        var log_data = 20 + Math.floor(ran * 100)/100;
+        var str =  '['+now +']'+ '{"sensor":"temperature","data":"' + log_data + '"}'
+        
+        $('#log_console').scrollTop($('#log_console')[0].scrollHeight);
+        $('#log_console').val($('#log_console').val()+'\n'+str);
+        $('#log_console').scrollTop($('#log_console')[0].scrollHeight);
+    }, 1000);
+    
+    $( "select" ).change(function () {
+        sensor_id = $( this ).val();
+        redraw_chart();
+    }).change();
+
+    $( "#left" ).click(function() {	  
+    	  var tmp = new Date(new Date(display_date).valueOf() - 1000*3600*24)
+    	  display_date = '' + tmp.getUTCFullYear() +'-'+(tmp.getMonth()+1)+'-'+tmp.getDate()
+    	  redraw_chart()
+    });
+    /*
+    $( "#now" ).click(function() {	  
+    	  var tmp = new Date(new Date(display_date_ori).valueOf())
+    	  display_date = '' + tmp.getUTCFullYear() +'-'+(tmp.getMonth()+1)+'-'+tmp.getDate()
+    	  redraw_chart()
+    });
+    */
+    
+    $( "#right" ).click(function() { 
+    	  var tmp = new Date(new Date(display_date).valueOf() + 1000*3600*24)
+    	  display_date = '' + tmp.getUTCFullYear() +'-'+(tmp.getMonth()+1)+'-'+tmp.getDate()
+    	  redraw_chart()
+    });    
+    
+});
+
+function redraw_chart(){
+    $.ajax({
+        url: 'http://sensor-monitor.herokuapp.com/rest/daily_sensordata/'+sensor_id+'/' +display_date,
+        type: 'GET',
+        success: function (data) {
+            var json_object = jQuery.parseJSON(data);
+            change_chart(json_object);
+            console.log('Ajax Success: ');
+        },
+        error: function (xhr, status, error) {
+            console.log('Error: ' + error.message);
+        },
+    });    
+}
+
+function change_chart(json_object){
+	var iframeBody = $(frames["iframe_chart"].window.document).contents().find("body")
+	iframeBody.shieldChart({
+              
+                exportOptions: {
+                    image: false,
+                    print: false
+                },
+                axisX: {
+                  categoricalValues: ['0 AM', '1 AM', '2 AM', '3 AM', '4 AM', '5 AM', '6 AM', '7 AM', '8 AM', '9 AM', '10 AM', '11 AM','12 AM','1 PM', '2 PM', '3 PM', '4 PM', '5 PM', '6 PM', '7 PM', '8 PM', '9 PM', '10 PM', '11 PM']
+                },
+                axisY: {
+                    axisTickText: {
+                        format: function(text, axis, chart) {
+                          return text + json_object.sensor_info.unit;
+                        },
+                        textAngle: -13,
+                      style: {
+                       color: 'green',
+                       font: '11px bold Segoe UI, Tahoma, Verdana, sans-serif'
+                       }
+                    },
+                  
+                    title: {
+                        text: json_object.sensor_info.desc
+                    }
+                },
+                chartLegend: {
+                    align: 'center',
+                    borderRadius: 2,
+                    borderWidth: 2,
+                    verticalAlign: 'top'
+                },
+                tooltipSettings:{
+                    chartBound:true
+                }, 
+                seriesSettings: {
+                    line: {
+                        enablePointSelection: true,
+                        pointMark: {
+                            activeSettings: {
+                                pointSelectedState: {
+                                    drawWidth: 4,
+                                    drawRadius: 4
+                                }
+                            }
+                        }
+                    }
+                },
+                primaryHeader: {
+                    text: "Date: " + json_object.taskDate,
+                    style: {
+                        color: 'black',
+                        font: '17px'
+                      }
+                },
+                dataSeries: [{
+                    seriesType: 'line',
+                    collectionAlias: 'Max',
+                    data: json_object.daily_max_data
+                }, {
+                    seriesType: 'line',
+                    collectionAlias: 'Everage',
+                    data: json_object.daily_avg_data
+                }, {
+                    seriesType: 'line',
+                    collectionAlias: 'Min',
+                    data: json_object.daily_min_data
+                }]
+            });
+}
+
+
+</script>
+</body></html>

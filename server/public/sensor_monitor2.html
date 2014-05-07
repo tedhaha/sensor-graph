@@ -1,0 +1,84 @@
+<html><head>
+    <meta charset="utf-8">
+    <title>Sensor Monitor</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/jquery-ui.min.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/sensor_monitor.css">
+    <script type="text/javascript" src="/javascripts/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="/javascripts/jquery-ui.min.js"></script>
+</head>
+<body>
+	<br>
+	<h1 align="center">Sensor Monitor</h1><br><br>
+  <div style="
+    position: absolute;
+    margin-left: 70%;
+    margin-top: -32px;
+    border: 2px solid rgb(128, 31, 127);
+"><select name="chart_type" style="
+    width: 130px;
+    margin: 3px 8px 3px 10px;
+    margin-right: 8px;
+">
+  <option value="daily_temp_chart.html" selected="selected">Daily Chart</option>
+  <option value="realtime_temp_chart.html">RealTime Chart</option>
+</select></div>
+	<table class="frame" align="center" style="">
+		<tbody><tr>
+			<th>Temperature Chart</th>
+			<th>Real Time Log </th>			
+		</tr>
+		<tr>
+			<td valign="top" style="width:70%
+">
+							
+               <iframe id="iframe_chart" name="iframe_chart" src="http://sensor-monitor.herokuapp.com/daily_temp_chart.html" style="
+    border: none;
+    width: 100%;
+    height: 100%;
+"></iframe>
+			</td><td id="log" align="center" style="
+">
+  <div id="status_temperature" name="status_temperature" class="sensor_on" style="
+">Sensor On</div><p></p>
+				** Connection Log **<br><textarea id="log_console" rows="12" cols="120" style="
+    width: 88%;
+    height: 390px;
+"></textarea>
+			</td>	
+		</tr>
+		          
+	</tbody></table>
+
+	
+<script>
+/*
+setInterval(function () {
+    var now = new Date();
+    now = now.getHours()+':'+now.getMinutes()+':'+now.getSeconds();
+    
+    var ran = Math.random();
+                if(ran < 0.5 ){
+                    ran += 0.5
+                }
+    var log_data = 20 + Math.floor(ran * 100)/100;
+    var str =  '['+now +']'+ '{"sensor":"temperature","data":"' + log_data + '"}'
+    
+    $('#log_console').scrollTop($('#log_console')[0].scrollHeight);
+    $('#log_console').val($('#log_console').val()+'\n'+str);
+    $('#log_console').scrollTop($('#log_console')[0].scrollHeight);
+	}, 1000);
+*/
+
+$( "select" ).change(function () {
+    var str = "";
+    $( "select option:selected" ).each(function() {
+    str = "http://sensor-monitor.herokuapp.com/" + $( this ).val() + " ";
+    });
+    $("#iframe_chart").attr("src", str);
+    
+}).change();
+
+
+
+</script>
+</body></html>
