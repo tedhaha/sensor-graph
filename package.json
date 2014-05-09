@@ -7,7 +7,7 @@
   },
   "private": true,
   "scripts": {
-    "start": "node server/app.js"
+    "start": "node server/app_sensor_graph.js"
   },
   "dependencies": {
     "express": "3.3.5",
